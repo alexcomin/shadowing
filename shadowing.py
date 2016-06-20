@@ -2,10 +2,12 @@ import os
 from time import sleep
 from datetime import datetime
 
+# функция записи в файл
 def write_file(name_file, arg1, arg2, arg3):
     with open(name_file, 'a') as writes_file:
         writes_file.write(arg1 + " " + arg2 + " " + arg3 + '\n');
 
+# функция отслеживающая входящие подключения tcp
 def shadowing():
     result_netstat = os.popen('netstat -t').read();
     global time_now;
