@@ -12,10 +12,7 @@ def shadowing():
     result_netstat = os.popen('netstat -t').read();
     global time_now;
     time_now = datetime.strftime(datetime.now(), "%d/%m/%y %H:%M:%S");
-    crate_array = result_netstat.split("\n");
-    crate_array.remove(crate_array[len(crate_array) -1]);
-    for number in range(2):
-        crate_array.remove(crate_array[0]);
+    crate_array = result_netstat.split("\n")[2:-1];
     for i in crate_array:
         new_array = i.split(" ");
         lines = list(filter(bool, map(str.rstrip, new_array)));
