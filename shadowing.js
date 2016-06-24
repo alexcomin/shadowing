@@ -33,7 +33,7 @@ function start() {
   
   function shadowing(netstat) {
     var result = netstat.split('\n');
-    result = result.slice(2).slice(0, -1);
+    result = result.slice(2, -1)
     for (i in result) {
       var newArray = result[i].split(' ');
       var lines = newArray.filter(function(notUndefined) { 
