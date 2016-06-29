@@ -64,14 +64,14 @@ function start() {
 
   function whoIsIt(command) {
     const exec = require('child_process').exec;
-    const netstat = exec(command, function (error, stdout, stderr) {
+    const consoleCommands = exec(command, function (error, stdout, stderr) {
       working(stdout)
     });
   }
 
   function searchSsh(command) {
     const exec = require('child_process').exec;
-    const netstat = exec(command, function (error, stdout, stderr) {
+    const consoleCommands = exec(command, function (error, stdout, stderr) {
       working2(stdout);
     });
   }
