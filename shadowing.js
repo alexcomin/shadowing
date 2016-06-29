@@ -111,7 +111,8 @@ function start() {
         status['ssh'] += 1;
         status['alienSSH'] = alien[0]
       }
-      if (ports[1] == "6081" || ports[1] == "6080") {
+      if (ports[1] == "6081" || ports[1] == "6080" ||
+          ports[1] == "5901" || ports[1] == "5900") {
         status['vns'] += 1;
         status['alienVNC'] = alien[0].split(".")[0];
       } else {
