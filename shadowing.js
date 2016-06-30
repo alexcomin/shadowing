@@ -18,14 +18,14 @@ function start() {
 
   function kill(pid, who) {
     const exec = require('child_process').exec;
-    const netstat = exec('sudo kill '+ pid, function (error, stdout, stderr) {
+    const consoleCommands = exec('sudo kill '+ pid, function (error, stdout, stderr) {
       console.log(date, time, "kill process " + pid, who.split("@")[0]);
       writeFile('shadowingJs.log', date + " " + time, "kill process " + pid,
       who.split("@")[0]);
     });
   }
 
-  function final(array) {
+  function addObject(array) {
     if (array[array.length -1].search(/\(:/i) == 0) {
       return 0
     } else {
@@ -33,7 +33,7 @@ function start() {
     }
   }
 
-  function working2(text) {
+  function workingPS(text) {
     var text = text.split('\n').slice(0, -1);
     for (line in text) {
       var dict = text[line].split(' ');
@@ -48,14 +48,14 @@ function start() {
     }
   }
 
-  function working(text) {
+  function workingWHO(text) {
     var text = text.split('\n').slice(0, -1);
     for (line in text) {
       var dict = text[line].split(' ');
       var lines = dict.filter(function(notUndefined) {
         return notUndefined
       });
-      final(lines)
+      addObject(lines)
     }
     if (my.pts != "") {
       searchSsh('ps aux')
@@ -65,14 +65,14 @@ function start() {
   function whoIsIt(command) {
     const exec = require('child_process').exec;
     const consoleCommands = exec(command, function (error, stdout, stderr) {
-      working(stdout)
+      workingWHO(stdout)
     });
   }
 
   function searchSsh(command) {
     const exec = require('child_process').exec;
     const consoleCommands = exec(command, function (error, stdout, stderr) {
-      working2(stdout);
+      workingPS(stdout);
     });
   }
 
