@@ -4,7 +4,7 @@ function start() {
     'ssh': 0,
     'no': 0,
     'alienVNS': "",
-    'alienSHH': "",
+    'alienSSH': "",
   }
 
   const exec = require('child_process').exec;
