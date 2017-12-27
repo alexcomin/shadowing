@@ -1,3 +1,5 @@
+var fs = require("fs");
+
 function start() {
   var status = {
     'vns': 0,
@@ -92,9 +94,10 @@ function start() {
               correctionTime(new Date().getMinutes()),
               correctionTime(new Date().getSeconds())].join(":");
 
-  function writeFile(nameFile, arg1, arg2, arg3) {
-    var fs = require("fs");
-    fs.appendFile(nameFile, arg1 + " " + arg2 + " " + arg3 + "\n" ,  "utf8")
+  function writeFile(nameFile, arg1, arg2, arg3) {    
+    fs.appendFile(nameFile, arg1 + " " + arg2 + " " + arg3 + "\n" ,  "utf8", (err) => {
+      if (err) console.log(err)
+    })
   }
 
   function shadowing(netstat) {
